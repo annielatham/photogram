@@ -19,7 +19,7 @@
       <tr>
         <td><%= image.caption %></td>
         <td><%= image.image_file %></td>
-        <td><%= image.posting_user_id %></td>
+        <td><%= image.posting_user.username %></td>
         <td>
           <a href="/images/<%= image.id %>" class="btn btn-primary">Show</a>
           <a href="/images/<%= image.id %>/edit" class="btn btn-warning">Edit</a>
