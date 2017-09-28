@@ -35,14 +35,8 @@
         </label>
       </div>
 
-      <!-- Label and input for liking_user_id -->
-      <div class="form-group">
-        <label for="liking_user_id" class="control-label">
-          Liking user
-        </label>
-
-        <%= select_tag(:liking_user_id, options_from_collection_for_select(User.all, :id, :username, @like.liking_user_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <button class="btn btn-warning">
         Update Like
