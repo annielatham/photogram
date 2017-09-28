@@ -19,7 +19,7 @@
       <tr>
         <td><%= comment.photo.caption %></td>
         <td><%= comment.comment_text %></td>
-        <td><%= comment.commenting_user_id %></td>
+        <td><%= comment.commenting_user.username %></td>
         <td>
           <a href="/comments/<%= comment.id %>" class="btn btn-primary">Show</a>
           <a href="/comments/<%= comment.id %>/edit" class="btn btn-warning">Edit</a>
