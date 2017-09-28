@@ -42,7 +42,7 @@
           Commenting user
         </label>
 
-        <input type="text" id="commenting_user_id" name="commenting_user_id" placeholder="Commenting user" class="form-control" value="<%= @comment.commenting_user_id %>">
+        <%= select_tag(:commenting_user_id, options_from_collection_for_select(User.all, :id, :username, @comment.commenting_user_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
