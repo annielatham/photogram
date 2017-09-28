@@ -41,7 +41,7 @@
           Liking user
         </label>
 
-        <input type="text" id="liking_user_id" name="liking_user_id" placeholder="Liking user" class="form-control" value="<%= @like.liking_user_id %>">
+        <%= select_tag(:liking_user_id, options_from_collection_for_select(User.all, :id, :username, @like.liking_user_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
