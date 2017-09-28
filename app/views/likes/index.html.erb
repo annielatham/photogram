@@ -17,9 +17,21 @@
 
       <% @likes.each do |like| %>
       <tr>
-        <td><%= like.photo.caption %></td>
+        <td>
+          <% if like.photo.present? %>
+            <a href="/images/<%= like.photo.id %>">
+              <%= like.photo.caption %>
+            </a>
+          <% end %>
+        </td>
         <td><%= like.like %></td>
-        <td><%= like.liking_user.username %></td>
+        <td>
+          <% if like.liking_user.present? %>
+            <a href="/users/<%= like.liking_user.id %>">
+              <%= like.liking_user.username %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/likes/<%= like.id %>" class="btn btn-primary">Show</a>
           

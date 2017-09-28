@@ -12,7 +12,13 @@
       <dd><img src="<%= @image.image_file %>" class="img-responsive"></dd>
 
       <dt>Posting user</dt>
-      <dd><%= @image.posting_user_id %></dd>
+      <dd>
+        <% if @image.posting_user.present? %>
+          <a href="/users/<%= @image.posting_user_id %>">
+            <%= @image.posting_user.username %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
