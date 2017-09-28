@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Image #<%= @image.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Caption</dt>
+      <dd><%= @image.caption %></dd>
+
+      <dt>Image file</dt>
+      <dd><%= @image.image_file %></dd>
+
+      <dt>Posting user</dt>
+      <dd><%= @image.posting_user_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/images" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/images/<%= @image.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_image/<%= @image.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

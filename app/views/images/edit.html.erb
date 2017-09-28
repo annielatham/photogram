@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @image.errors.any? %>
+  <% @image.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Image #<%= @image.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_image/<%= @image.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for caption -->
+      <div class="form-group">
+        <label for="caption" class="control-label">
+          Caption
+        </label>
+
+        <input type="text" id="caption" name="caption" placeholder="Caption" class="form-control" value="<%= @image.caption %>">
+      </div>
+
+      <!-- Label and input for image_file -->
+      <div class="form-group">
+        <label for="image_file" class="control-label">
+          Image file
+        </label>
+
+        <input type="text" id="image_file" name="image_file" placeholder="Image file" class="form-control" value="<%= @image.image_file %>">
+      </div>
+
+      <!-- Label and input for posting_user_id -->
+      <div class="form-group">
+        <label for="posting_user_id" class="control-label">
+          Posting user
+        </label>
+
+        <input type="text" id="posting_user_id" name="posting_user_id" placeholder="Posting user" class="form-control" value="<%= @image.posting_user_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Image
+      </button>
+      or
+      <a href="/images/<%= @image.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
