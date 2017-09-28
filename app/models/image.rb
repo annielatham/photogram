@@ -1,6 +1,10 @@
 class Image < ApplicationRecord
   # Direct associations
 
+  has_many   :comments,
+             :foreign_key => "photo_id",
+             :dependent => :destroy
+
   has_many   :likes,
              :foreign_key => "photo_id",
              :dependent => :destroy
