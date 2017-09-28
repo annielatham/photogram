@@ -6,6 +6,8 @@ class ImagesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @like = Like.new
     @image = Image.find(params[:id])
 
     render("images/show.html.erb")

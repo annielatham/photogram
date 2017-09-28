@@ -57,6 +57,37 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_like" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for photo_id -->
+      <div class="form-group">
+        <label for="photo_id" class="control-label">
+          Photo
+        </label>
+
+        <%= select_tag(:photo_id, options_from_collection_for_select(Image.all, :id, :caption), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for like -->
+      <div class="checkbox">
+        <label for="like">
+          <input type="checkbox" id="like" name="like" value="1" <%= "checked" if @like.like %>>
+          Like
+        </label>
+      </div>
+
+      <!-- Label and input for liking_user_id -->
+      <input type="hidden" name="liking_user_id" value="<%= current_user.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Like
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -88,6 +119,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_comment" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for photo_id -->
+      <div class="form-group">
+        <label for="photo_id" class="control-label">
+          Photo
+        </label>
+
+        <%= select_tag(:photo_id, options_from_collection_for_select(Image.all, :id, :caption), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for comment_text -->
+      <div class="form-group">
+        <label for="comment_text" class="control-label">
+          Comment text
+        </label>
+
+        <textarea id="comment_text" name="comment_text" placeholder="Comment text" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for commenting_user_id -->
+      <input type="hidden" name="commenting_user_id" value="<%= current_user.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Comment
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
