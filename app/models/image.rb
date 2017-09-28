@@ -15,6 +15,10 @@ class Image < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :fans,
+             :through => :liking_users,
+             :source => :following
+
   has_many   :followers,
              :through => :posting_user,
              :source => :following
