@@ -17,7 +17,7 @@
 
       <% @likes.each do |like| %>
       <tr>
-        <td><%= like.photo_id %></td>
+        <td><%= like.photo.caption %></td>
         <td><%= like.like %></td>
         <td><%= like.liking_user_id %></td>
         <td>
