@@ -15,6 +15,10 @@ class Image < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :commenting_users,
+             :through => :comments,
+             :source => :commenting_user
+
   # Validations
 
 end
