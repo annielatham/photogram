@@ -36,14 +36,8 @@
         <textarea id="comment_text" name="comment_text" placeholder="Comment text" class="form-control" rows="3"><%= @comment.comment_text %></textarea>
       </div>
 
-      <!-- Label and input for commenting_user_id -->
-      <div class="form-group">
-        <label for="commenting_user_id" class="control-label">
-          Commenting user
-        </label>
-
-        <%= select_tag(:commenting_user_id, options_from_collection_for_select(User.all, :id, :username, @comment.commenting_user_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <button class="btn btn-warning">
         Update Comment
