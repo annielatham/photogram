@@ -1,4 +1,6 @@
 class Image < ApplicationRecord
+  mount_uploader :image_file, ImageFileUploader
+
   # Direct associations
 
   has_many   :comments,

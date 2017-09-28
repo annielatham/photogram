@@ -18,7 +18,7 @@
       <% @images.each do |image| %>
       <tr>
         <td><%= image.caption %></td>
-        <td><%= image.image_file %></td>
+        <td><img src='<%= image.image_file %>' class='img-responsive'></td>
         <td><%= image.posting_user.username %></td>
         <td>
           <a href="/images/<%= image.id %>" class="btn btn-primary">Show</a>
