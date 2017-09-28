@@ -17,7 +17,7 @@
 
       <% @comments.each do |comment| %>
       <tr>
-        <td><%= comment.photo_id %></td>
+        <td><%= comment.photo.caption %></td>
         <td><%= comment.comment_text %></td>
         <td><%= comment.commenting_user_id %></td>
         <td>
