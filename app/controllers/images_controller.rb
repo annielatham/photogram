@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
   def index
-    @images = Image.page(params[:page]).per(10)
+    @q = Image.ransack(params[:q])
+    @images = @q.result(:distinct => true).includes(:posting_user, :likes, :comments, :commenting_users, :liking_users, :followers, :fans).page(params[:page]).per(10)
 
     render("images/index.html.erb")
   end
