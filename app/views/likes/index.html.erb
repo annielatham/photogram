@@ -22,8 +22,11 @@
         <td><%= like.liking_user.username %></td>
         <td>
           <a href="/likes/<%= like.id %>" class="btn btn-primary">Show</a>
-          <a href="/likes/<%= like.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_like/<%= like.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == like.liking_user %>
+            <a href="/likes/<%= like.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_like/<%= like.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
