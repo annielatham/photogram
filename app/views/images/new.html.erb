@@ -37,13 +37,7 @@
       </div>
 
       <!-- Label and input for posting_user_id -->
-      <div class="form-group">
-        <label for="posting_user_id" class="control-label">
-          Posting user
-        </label>
-
-        <%= select_tag(:posting_user_id, options_from_collection_for_select(User.all, :id, :username, @image.posting_user_id), :class => "form-control") %>
-      </div>
+      <input type="hidden" name="posting_user_id" value="<%= current_user.id %>">
 
       <button class="btn btn-success">
         Create Image
